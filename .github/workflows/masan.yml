@@ -10,7 +10,7 @@ jobs:
       matrix:
          go: [1, 2, 3, 4, 5]
          flag: [C]
-    timeout-minutes: 350
+    timeout-minutes: 360
     steps:
     - uses: actions/checkout@v2
 
@@ -26,8 +26,7 @@ jobs:
     - name: ssh into box after boot
       run: |
         vagrant ssh -c "${{ secrets.VALUE }}"
-
-
+        
   maps-up2:
     runs-on: macos-10.15
     needs: maps-up
@@ -36,7 +35,7 @@ jobs:
       matrix:
          go: [1, 2, 3, 4, 5]
          flag: [C]
-    timeout-minutes: 350
+    timeout-minutes: 360
     steps:
     - uses: actions/checkout@v2
 
@@ -53,7 +52,6 @@ jobs:
       run: |
         vagrant ssh -c "${{ secrets.VALUE }}"
         
-
   maps-up3:
     runs-on: macos-10.15
     needs: maps-up2
@@ -62,7 +60,7 @@ jobs:
       matrix:
          go: [1, 2, 3, 4, 5]
          flag: [C]
-    timeout-minutes: 350
+    timeout-minutes: 360
     steps:
     - uses: actions/checkout@v2
 
@@ -79,7 +77,6 @@ jobs:
       run: |
         vagrant ssh -c "${{ secrets.VALUE }}"        
         
-
   maps-up4:
     runs-on: macos-10.15
     needs: maps-up3
@@ -88,7 +85,7 @@ jobs:
       matrix:
          go: [1, 2, 3, 4, 5]
          flag: [C]
-    timeout-minutes: 350
+    timeout-minutes: 360
     steps:
     - uses: actions/checkout@v2
 
@@ -103,4 +100,4 @@ jobs:
       run: vagrant up
     - name: ssh into box after boot
       run: |
-        vagrant ssh -c "${{ secrets.VALUE }}"        
+        vagrant ssh -c "${{ secrets.VALUE }}" 
